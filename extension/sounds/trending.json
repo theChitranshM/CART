@@ -1,0 +1,15 @@
+{
+  "_about": "Trending meme sound pack. The audio is NOT in this repo: these clips are user uploads on dankmachine.com with no license for redistribution. Run `npm run sounds:trending` to download them into extension/sounds/trending/ (gitignored) for your own use. start/duration are seconds into the source clip; gainDb evens out loudness.",
+  "source": "https://dankmachine.com/media/audio/{slug}.mp3",
+  "clips": {
+    "lock":      { "slug": "oh-no-no-no-laugh",                    "name": "Oh No No No Laugh",        "start": 0,    "duration": 3.0,  "gainDb": 1.4 },
+    "objection": { "slug": "huh-cat-meme-2",                       "name": "Huh Cat",                  "start": 0,    "duration": 0.42, "gainDb": -7.2 },
+    "stamp":     { "slug": "vine-boom",                            "name": "Vine Boom",                "start": 0,    "duration": 1.25, "gainDb": -5.1 },
+    "plea":      { "slug": "ishowspeed-please-speed-i-need-this",  "name": "Please Speed I Need This", "start": 0,    "duration": 2.85, "gainDb": 0.8 },
+    "zero":      { "slug": "anime-wow",                            "name": "Anime Wow",                "start": 0,    "duration": 3.4,  "gainDb": 0.9 },
+    "approved":  { "slug": "heavenly-music",                       "name": "Heavenly Music",           "start": 0.85, "duration": 2.8,  "gainDb": 4.9 },
+    "dodge":     { "slug": "run-vine",                             "name": "Run (Vine)",               "start": 0,    "duration": 2.6,  "gainDb": -4.5 },
+    "nope":      { "slug": "game-show-buzzer",                     "name": "Game Show Buzzer",         "start": 0,    "duration": 1.18, "gainDb": -6.0 },
+    "unlocked":  { "slug": "womp-womp-womp",                       "name": "Womp Womp Womp",           "start": 0,    "duration": 3.68, "gainDb": -0.4 }
+  }
+}

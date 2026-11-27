@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CART settings</title>
+<link rel="stylesheet" href="options.css">
+</head>
+<body>
+<main>
+  <h1><span class="logo">CART</span> settings</h1>
+  <p class="sub">Everything personal lives here, in this browser's local extension storage. Nothing is synced or sent anywhere except the roast request.</p>
+
+  <section>
+    <h2>You</h2>
+    <label>Your name (optional) <input id="yourName" type="text"></label>
+    <label>Currency <input id="currency" type="text" maxlength="3"></label>
+    <label>Things you already own (one per line, used in roasts)
+      <textarea id="ownedItems" rows="5" placeholder="e.g. 3 grey hoodies&#10;white sneakers I wear every day"></textarea></label>
+  </section>
+
+  <section>
+    <h2>Roast</h2>
+    <label>Strictness
+      <select id="strictness"><option value="1">1 gentle</option><option value="2">2 savage</option><option value="3">3 unhinged</option></select></label>
+    <label>Only thing allowed through (comma-separated keywords) <input id="survivorKeywords" type="text"></label>
+    <div class="row">
+      <label>Buy Anyway dodges before it gives in <input id="buyAnywayDodges" type="number" min="0" max="20"></label>
+      <label>Last item
+        <select id="fightMode"><option value="button">wait for "I need this one" click</option><option value="auto">argue automatically</option></select></label>
+    </div>
+    <label>Take over on
+      <select id="trigger"><option value="checkout">clicking checkout</option><option value="cart-load">opening the cart</option></select></label>
+  </section>
+
+  <section>
+    <h2>Sound</h2>
+    <div class="row">
+      <label>Sound effects
+        <select id="sounds"><option value="meme">Meme, built in (licensed: vine-boom style, air horn, sad trombone...)</option><option value="trending">Trending (Dank Machine clips, run npm run sounds:trending first)</option><option value="classic">Classic (subtle)</option><option value="off">Off</option></select></label>
+      <label>Volume <input id="volume" type="number" min="0" max="1" step="0.05"></label>
+    </div>
+    <p class="hint">Preview each beat. Upload your own clip to replace it (mp3/ogg/wav, max 1 MB). Uploads stay in this browser.</p>
+    <p id="trendingStatus" class="hint"></p>
+    <ul id="beats" class="beats"></ul>
+    <p class="hint">Import a whole pack at once: pick audio files named after the beat (<code>lock</code>, <code>objection</code>, <code>stamp</code>, <code>ticked</code>, <code>plea</code>, <code>zero</code>, <code>approved</code>, <code>dodge</code>, <code>nope</code>, <code>unlocked</code>, <code>next</code>), any audio extension.</p>
+    <input id="importPack" type="file" accept="audio/*" multiple> <button id="clearPack" type="button">Remove all my clips</button> <span id="packStatus" class="status"></span>
+    <details>
+      <summary>Read roasts out loud (off by default)</summary>
+      <label class="check"><input id="voiceEnabled" type="checkbox"> Read roasts out loud with a system voice</label>
+      <div class="row">
+        <label>Voice <select id="voiceName"><option value="">System default</option></select></label>
+        <label>Speed <input id="voiceRate" type="number" min="0.5" max="2" step="0.05"></label>
+      </div>
+      <button id="testVoice" type="button">Test voice</button>
+    </details>
+  </section>
+
+  <section>
+    <h2>Claude</h2>
+    <label>Connection
+      <select id="provider">
+        <option value="auto">Auto: local bridge, then API key</option>
+        <option value="bridge">Local bridge only (uses your Claude Code login)</option>
+        <option value="api">API key only</option>
+        <option value="offline">Offline (local roasts, no Claude)</option>
+      </select></label>
+    <label>Bridge URL <input id="bridgeUrl" type="text"></label>
+    <label>Anthropic API key (stored only in this browser, never in the repo) <input id="apiKey" type="password" autocomplete="off"></label>
+    <div class="row">
+      <label>Model <input id="model" type="text"></label>
+      <label>Effort <select id="effort"><option>low</option><option>medium</option><option>high</option></select></label>
+    </div>
+    <button id="testClaude" type="button">Test Claude connection</button> <span id="claudeStatus" class="status"></span>
+    <label class="check"><input id="showDebug" type="checkbox"> Show debug line in the takeover</label>
+  </section>
+
+  <section>
+    <h2>Config file</h2>
+    <p class="hint">Load a <code>config.local.json</code> (see <code>config.example.json</code>) to set all of this in one go. Keys in the file are optional.</p>
+    <input id="importConfig" type="file" accept="application/json">
+    <button id="exportConfig" type="button">Export settings (without API key)</button>
+  </section>
+
+  <div class="savebar"><button id="save" type="button" class="primary">Save</button><span id="saved" class="status"></span></div>
+
+  <section>
+    <h2>Recorded runs (offline fallback)</h2>
+    <p class="hint">Every real takeover is saved here with the cart it read and the roasts it got. Replay plays the same run full-screen with voice, as an emergency backup for filming.</p>
+    <div id="lastSaved" class="hint"></div>
+    <ul id="runs"></ul>
+    <input id="importRun" type="file" accept="application/json"> <span class="hint">import a run JSON to replay</span>
+  </section>
+</main>
+<script src="../src/lib/money.js"></script>
+<script src="../src/lib/config.js"></script>
+<script src="../src/content/sfx.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

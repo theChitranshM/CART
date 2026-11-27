@@ -1,0 +1,27 @@
+:root { color-scheme: light dark; --bg: #faf8f5; --fg: #161413; --dim: #6f6a64; --line: #e2ddd6; --red: #e11d1d; --card: #fff; }
+@media (prefers-color-scheme: dark) { :root { --bg: #0f0e0d; --fg: #f3f0eb; --dim: #9a948d; --line: #2b2826; --card: #181615; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 80px; }
+h1 { font-size: 26px; margin: 0; } .logo { color: var(--red); font-family: "Arial Black", Impact, sans-serif; letter-spacing: .05em; }
+h2 { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); margin: 0 0 12px; }
+.sub, .hint { color: var(--dim); font-size: 13px; }
+section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-top: 16px; }
+label { display: block; margin-bottom: 12px; font-weight: 600; font-size: 13px; }
+label.check { display: flex; gap: 8px; align-items: center; }
+input[type=text], input[type=number], input[type=password], select, textarea { display: block; width: 100%; box-sizing: border-box; margin-top: 4px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); font: inherit; font-weight: 400; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
+button { font: 600 13px/1 -apple-system, sans-serif; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer; }
+button.primary { background: var(--red); color: #fff; border-color: var(--red); }
+.savebar { position: sticky; bottom: 12px; margin-top: 16px; display: flex; gap: 12px; align-items: center; }
+.status { font-size: 13px; color: var(--dim); }
+#runs { padding: 0; list-style: none; } #runs li { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); font-size: 13px; }
+#runs li span { flex: 1 1 260px; }
+code { font-size: 12px; }
+
+.beats { list-style: none; padding: 0; margin: 0 0 12px; }
+.beats li { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 13px; }
+.beats li .name { flex: 1 1 200px; font-weight: 600; }
+.beats li .tag { font-size: 11px; color: var(--dim); }
+.beats input[type=file] { display: none; }
+details { margin-top: 8px; } summary { cursor: pointer; color: var(--dim); font-size: 13px; margin-bottom: 10px; }

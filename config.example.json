@@ -1,0 +1,21 @@
+{
+  "_readme": "Copy to config.local.json (gitignored), fill in, then load it from the CART settings page. Every key is optional. Never put an API key in a file you commit.",
+  "yourName": "",
+  "currency": "CAD",
+  "ownedItems": ["", ""],
+  "sounds": "meme",
+  "volume": 0.8,
+  "voiceEnabled": false,
+  "voiceName": "",
+  "voiceRate": 1.05,
+  "strictness": 2,
+  "provider": "auto",
+  "bridgeUrl": "http://127.0.0.1:8787",
+  "model": "claude-sonnet-5-5",
+  "effort": "low",
+  "trigger": "checkout",
+  "survivorKeywords": "3d printer",
+  "buyAnywayDodges": 6,
+  "fightMode": "button",
+  "showDebug": false
+}

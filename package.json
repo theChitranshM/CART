@@ -1,0 +1,29 @@
+{
+  "name": "cart-extension",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "bridge": "node bridge/server.mjs",
+    "dev:browser": "dev/browser.sh",
+    "sounds:trending": "node scripts/fetch-trending-sounds.mjs"
+  },
+  "keywords": [
+    "chrome-extension",
+    "claude",
+    "anthropic",
+    "impulse-buying",
+    "black-friday"
+  ],
+  "author": "Chitransh Motwani",
+  "license": "MIT",
+  "description": "CART: a Chrome extension where Claude reads your real cart at checkout, locks it, and talks you out of every item out loud.",
+  "devDependencies": {
+    "jsdom": "^25.0.1",
+    "playwright": "^1.65.1"
+  },
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  }
+}

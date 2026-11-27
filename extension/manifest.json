@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "CART: Claude Against Retail Therapy",
+  "short_name": "CART",
+  "version": "1.0.0",
+  "description": "Reads your real cart at checkout, locks it, and has Claude roast every item on screen, with meme sound effects.",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": [
+    "storage",
+    "tts"
+  ],
+  "host_permissions": [
+    "https://api.anthropic.com/*",
+    "http://127.0.0.1:8787/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options/options.html",
+  "action": {
+    "default_title": "CART settings"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.holtrenfrew.com/*",
+        "https://www.amazon.ca/*",
+        "https://www.amazon.com/*",
+        "https://www.bestbuy.ca/*",
+        "https://www.bestbuy.com/*"
+      ],
+      "js": [
+        "src/lib/money.js",
+        "src/lib/config.js",
+        "src/parsers/holt.js",
+        "src/parsers/amazon.js",
+        "src/parsers/bestbuy.js",
+        "src/parsers/generic.js",
+        "src/parsers/index.js",
+        "src/roast/fallback.js",
+        "src/content/sfx.js",
+        "src/content/takeover.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/content/takeover.css",
+        "sounds/pack/*",
+        "sounds/trending/*",
+        "sounds/trending.json",
+        "sounds/keys/*"
+      ],
+      "matches": [
+        "https://www.holtrenfrew.com/*",
+        "https://www.amazon.ca/*",
+        "https://www.amazon.com/*",
+        "https://www.bestbuy.ca/*",
+        "https://www.bestbuy.com/*"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# secrets and personal config: never commit
+.env
+.env.*
+!.env.example
+config.local.json
+*.local.json
+*.key
+*.pem
+secrets/
+.anthropic*
+
+# local artefacts
+node_modules/
+recordings/
+dev/shots/
+dev/*.html
+dev/*.png
+*.log
+.DS_Store
+*.crx
+*.zip
+
+# trending meme clips are downloaded locally (no redistribution license)
+extension/sounds/trending/
